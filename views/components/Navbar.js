@@ -39,12 +39,14 @@ const Navbar = {
   postRender: async () => {
     document.getElementById("log-in").addEventListener("click", async (e) => {
       e.preventDefault();
-      // 👉 Replace this with login call 👈
+      await window.auth0Client.loginWithRedirect();
     });
 
     document.getElementById("log-out").addEventListener("click", (e) => {
       e.preventDefault();
-      // 👉 Replace this with logout call 👈
+      window.auth0Client.logout({
+ returnTo: window.env.APP_URL,
+});
     });
   },
 };
