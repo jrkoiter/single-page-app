@@ -9,7 +9,7 @@ window.user = {
 
 const Navbar = {
   render: async () => {
-    const isAuthenticated = false; // 👈 Replace this with isAuthenticated check
+    const isAuthenticated = await window.auth0Client.isAuthenticated();
     const view = /*html*/ `
     <li class="logo">
       <a href="#">
